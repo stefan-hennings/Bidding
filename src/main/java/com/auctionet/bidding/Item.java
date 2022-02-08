@@ -3,6 +3,7 @@ package com.auctionet.bidding;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.Accessors;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -19,7 +20,7 @@ public class Item {
     @Column
     private String name;
 
-    @Column
+    @Column(length = 2000)
     private String description;
 
     @Column
@@ -27,5 +28,12 @@ public class Item {
 
     @OneToMany
     private List<Bid> bidList = new ArrayList<>();
+
+    public double getHighestBid() {
+        if (bidList.size() == 0) {
+            return 0;
+        }
+        return bidList.get(bidList.size() - 1).getAmount();
+    }
 
 }

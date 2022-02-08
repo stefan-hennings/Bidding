@@ -3,6 +3,7 @@ package com.auctionet.bidding;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.experimental.Accessors;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 
@@ -19,8 +20,4 @@ public class Bid {
 
     @Column
     private String bidderName;
-
-//    @ManyToOne
-//    @JoinColumn(referencedColumnName = "id")
-//    private Item item
 }

@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 //@RequestMapping("/")
+@CrossOrigin
 @RequiredArgsConstructor
 public class Controller {
     private final Service service;
